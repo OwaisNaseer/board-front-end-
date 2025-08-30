@@ -10,10 +10,7 @@ import {
   DatePicker,
   CustomInput,
 } from '../../../components/Shared';
-import {
-  StockDataColumnData,
-  StockDataColumnExtensionsData,
-} from '../../../components/shared/CustomTable/dummyData';
+
 import { a11yProps } from '../../../utils/utils';
 import dayjs from 'dayjs';
 
@@ -82,7 +79,7 @@ export const MarketData = () => {
         )
           .unwrap()
           .catch((err) => {
-            console.log(err)
+            console.log(err);
             toast.error(
               err ||
                 'Failed to fetch market data. Please check the symbol or try again.',
@@ -147,15 +144,47 @@ export const MarketData = () => {
       ),
     },
   ];
+  const StockDataColumnData = [
+    { name: 'id', title: '' },
+    { name: 'time', title: 'Time' },
+    { name: 'symbol', title: 'Symbol' },
+    { name: 'open', title: 'Open' },
+    { name: 'high', title: 'High' },
+    { name: 'low', title: 'Low' },
+    { name: 'close', title: 'Close' },
+    { name: 'change', title: 'CHANGE' },
+    { name: 'ma7', title: 'MA(7)' },
+    { name: 'ma25', title: 'MA(25)' },
+    { name: 'ma99', title: 'MA(99)' },
+    { name: 'ma7-ma25', title: 'MA(7)-MA(25)' },
+    { name: 'ma7-ma99', title: 'MA(7)-MA(99)' },
+    { name: 'ma25-ma99', title: 'MA(25)-MA(99)' },
+  ];
+  const StockDataColumnExtensionsData = [
+    { columnName: 'id', width: 80 },
+    { columnName: 'time', width: 220 },
+    { columnName: 'symbol', width: 150 },
+    { columnName: 'open', width: 100 },
+    { columnName: 'high', width: 100 },
+    { columnName: 'low', width: 100 },
+    { columnName: 'close', width: 100 },
+    { columnName: 'change', width: 100 },
+    { columnName: 'ma7', width: 100 },
+    { columnName: 'ma25', width: 100 },
+    { columnName: 'ma99', width: 100 },
+    { columnName: 'ma7-ma25', width: 100 },
+    { columnName: 'ma7-ma99', width: 100 },
+    { columnName: 'ma25-ma99', width: 120 },
+  ];
 
   return (
-    <div className="bg-white">
-      <div className="min-h-[65px] flex items-center justify-between px-4">
-        <div className="flex items-center h-[49px] pr-8">
+    <div className='bg-white'>
+      <div className='min-h-[65px] flex items-center justify-between px-4'>
+        <div className='flex items-center h-[49px] pr-8'>
           <Tabs
             value={value}
             onChange={handleChange}
-            aria-label="basic tabs example"
+            aria-label='basic tabs example'
             sx={{
               borderBottom: 'none',
               '& .MuiTabs-indicator': {
@@ -164,7 +193,7 @@ export const MarketData = () => {
             }}
           >
             <Tab
-              label="Real-time data"
+              label='Real-time data'
               {...a11yProps(0)}
               sx={{
                 fontFamily: '"Inter", sans-serif',
@@ -187,7 +216,7 @@ export const MarketData = () => {
               }}
             />
             <Tab
-              label="Historical data"
+              label='Historical data'
               {...a11yProps(1)}
               sx={{
                 fontFamily: '"Inter", sans-serif',
@@ -213,57 +242,72 @@ export const MarketData = () => {
         </div>
       </div>
       <TabPanel value={value} index={0}>
-        <div className="mt-4 px-2 sm:px-5">
-          <div className="h-[calc(100vh-160px)] overflow-auto">
-            <p className="text-gray-700">Real-time data not available in this mode</p>
+        <div className='mt-4 px-2 sm:px-5'>
+          <div className='h-[calc(100vh-160px)] overflow-auto'>
+            <p className='text-gray-700'>
+              Real-time data not available in this mode
+            </p>
           </div>
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div className="mt-4 px-2 sm:px-5">
+        <div className='mt-4 px-2 sm:px-5'>
           <div>
             {loading ? (
-              <div className="flex justify-center items-center h-[80vh]">
-                <CircularProgress size={40} className="!text-blue-600" />
+              <div className='flex justify-center items-center h-[80vh]'>
+                <CircularProgress size={40} className='!text-blue-600' />
               </div>
             ) : (
               <>
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <div className="flex-1 min-w-[200px]">
+                <div className='flex flex-wrap gap-3 pt-2'>
+                  <div className='flex-1 min-w-[200px]'>
                     <CustomInput
-                      label="Symbol"
-                      name="symbol"
+                      label='Symbol'
+                      name='symbol'
                       value={formData.symbol}
                       onChange={handleChangea}
-                      placeholder="Enter Symbol (e.g., LTCUSDT)"
+                      placeholder='Enter Symbol (e.g., LTCUSDT)'
                     />
                   </div>
-                  <div className="flex-1 min-w-[200px]">
+                  <div className='flex-1 min-w-[200px]'>
                     <DatePicker
-                      label="Start Date"
-                      name="selectDate"
-                      value={formData.selectDate ? dayjs(formData.selectDate) : null}
-                      onChange={(value) => handleDateTimeChange('selectDate', value)}
+                      label='Start Date'
+                      name='selectDate'
+                      value={
+                        formData.selectDate ? dayjs(formData.selectDate) : null
+                      }
+                      onChange={(value) =>
+                        handleDateTimeChange('selectDate', value)
+                      }
                     />
                   </div>
-                  <div className="flex-1 min-w-[200px]">
+                  <div className='flex-1 min-w-[200px]'>
                     <DatePicker
-                      label="End Date (Optional)"
-                      name="endDate"
+                      label='End Date (Optional)'
+                      name='endDate'
                       value={formData.endDate ? dayjs(formData.endDate) : null}
-                      onChange={(value) => handleDateTimeChange('endDate', value)}
+                      onChange={(value) =>
+                        handleDateTimeChange('endDate', value)
+                      }
                     />
                   </div>
                 </div>
                 {formData.symbol && formData.selectDate && (
-                  <div className="mt-4">
-                    <p className="font-bold text-gray-800 mb-2">Select Interval</p>
-                    <div className="flex flex-wrap gap-2">
+                  <div className='mt-4'>
+                    <p className='font-bold text-gray-800 mb-2'>
+                      Select Interval
+                    </p>
+                    <div className='flex flex-wrap gap-2'>
                       {cancelIntervals.map((option) => (
                         <button
                           key={option.value}
                           onClick={() =>
-                            handleChangea({ target: { name: 'cancelInterval', value: option.value } })
+                            handleChangea({
+                              target: {
+                                name: 'cancelInterval',
+                                value: option.value,
+                              },
+                            })
                           }
                           className={`rounded-full cursor-pointer px-4 py-2 text-sm font-medium ${
                             formData.cancelInterval === option.value
@@ -278,7 +322,7 @@ export const MarketData = () => {
                   </div>
                 )}
                 {bookings.length > 0 ? (
-                  <div className="h-[calc(100vh-305px)] overflow-auto">
+                  <div className='h-[calc(100vh-305px)] overflow-auto'>
                     <CustomTable
                       rows={bookings}
                       columns={StockDataColumnData}
@@ -289,8 +333,9 @@ export const MarketData = () => {
                     />
                   </div>
                 ) : (
-                  <div className="mt-5 h-[calc(100vh-160px)] flex justify-center items-center text-gray-700">
-                    Please enter a symbol, select an interval, and choose a date to view market data.
+                  <div className='mt-5 h-[calc(100vh-160px)] flex justify-center items-center text-gray-700'>
+                    Please enter a symbol, select an interval, and choose a date
+                    to view market data.
                   </div>
                 )}
               </>
