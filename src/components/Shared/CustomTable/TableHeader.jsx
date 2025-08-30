@@ -5,9 +5,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
+import { CustomCheckbox } from '../CustomCheckbox';
 
 // Local imports
-import { CustomCheckbox } from '../../shared';
 
 const Cell = styled(TableCell)(({ theme }) => ({
   color: 'black',
@@ -68,7 +68,7 @@ const TableHeader = ({
                     sx={{
                       width: 15,
                       height: 15,
-                      borderRadius: '3px',  
+                      borderRadius: '3px',
                       backgroundColor: 'primary.main',
                       cursor: 'pointer',
                       display: 'flex',
