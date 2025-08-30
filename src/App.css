@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap');
+@import 'tailwindcss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@theme {
+  /* Base Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Primary Theme */
+  --color-primary: #1d4ed8;
+  --color-primary-light: #dbeafe;
+  --color-primary-dark: #1e3a8a;
+
+  /* Secondary */
+  --color-secondary: #374151;
+  --color-secondary-light: #e5e7eb;
+  --color-secondary-dark: #111827;
+
+  /* Utility */
+  --color-danger: #ef4444;
+  --color-success: #22c55e;
+
+  /* Input Colors */
+  --color-input: #d1d5db;
+  --color-input-hover: #9ca3af;
+  --color-input-active: #6366f1;
+  --color-input-placeholder: #9ca3af;
+  --color-input-disabled: #f3f4f6;
+  --color-input-title: #737373;
+
+  /* Breakpoints */
+  --breakpoint-xxs: 320px;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 575px;
+  --breakpoint-smd: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-base: 992px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1296px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1536px;
+  --breakpoint-btw-lg-xl-min: 1024px;
+  --breakpoint-btw-lg-xl-max: 1180px;
+
+  /* Font */
+  --font-input-font: 'Inter', sans-serif;
+  --text-input-size: 14px;
+  --text-input-title-size: 12px;
+  --font-jetbrains: "JetBrains Mono", monospace;
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-anton: "Anton", sans-serif;
+
+  /* Extended Theme Colors */
+  --color-neutral-1300: #0A090B;
+  --color-neutral-1200: #1D1C20;
+  --color-neutral-1100: #363840;
+  --color-neutral-1000: #4F4D55;
+  --color-neutral-900: #7F7D83;
+  --color-neutral-600: #9499A5;
+  --color-neutral-500: #E6E6E6;
+  --color-neutral-400: #ECECED;
+  --color-neutral-300: #F1F1F1;
+  --color-neutral-200: #F8F8F8;
+
+  --color-cool-grey-1100: #363840;
+  --color-cool-grey-1000: #363840;
+  --color-cool-grey-900: #595E6A;
+  --color-cool-grey-800: #6B7180;
+  --color-cool-grey-600: #9499A5;
+  --color-cool-grey-200: #EFF0F2;
+
+  --color-green-800: #019939;
+
+  --color-blue-1200: #0B1B45;
+  --color-blue-1000: #113B98;
+  --color-blue-900: #1751D0;
+  --color-blue-300: #EBF0FB;
+  --color-blue-200: #F5FbFD;
+  --color-blue-100: #FDFDFF;
+
+  --color-cornflower-blue-light: #6571CA;
+  --color-blue-voilet: #646DCB;
+
+  --color-grey-primary: #262628;
+  --color-foreground-primary: #000;
+  --color-light-gray: #D0D0D0;
+
+  --color-goldEnrod: #DBA51A;
+  --color-linear-light: linear-gradient(180deg, #FFFFFF 0%, #EBF1FD 100%);
+  --color-ghost-white: #F8F8F9;
+  --color-red-800: #E12121;
+  --color-red-500: #FF7F7F;
+  --color-teal-300: #B8DEE9;
+  --color-green-500: #63C888;
+}
+
+
+/* Hide scrollbar  */
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Remove input default styling  */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+/* Hides spinner for Chrome, Safari, Edge */
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hides spinner for Firefox */
+.no-spinner[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* GLOBAL CUSTOM SCROLLBAR (visible everywhere unless hidden) */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+/* Hide scrollbar completely */
+.hidden-scrollbar {
+  scrollbar-width: none !important;
+  /* Firefox */
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  /* Chrome/Safari */
+}
+
+
+/* Namespace	Utility classes
+--color-*	Color utilities like bg-red-500, text-sky-300, and many more
+--font-*	Font family utilities like font-sans
+--text-*	Font size utilities like text-xl
+--font-weight-*	Font weight utilities like font-bold
+--tracking-*	Letter spacing utilities like tracking-wide
+--leading-*	Line height utilities like leading-tight
+--breakpoint-*	Responsive breakpoint variants like sm:*
+--container-*	Container query variants like @sm:* and size utilities like max-w-md
+--spacing-*	Spacing and sizing utilities like px-4, max-h-16, and many more
+--radius-*	Border radius utilities like rounded-sm
+--shadow-*	Box shadow utilities like shadow-md
+--inset-shadow-*	Inset box shadow utilities like inset-shadow-xs
+--drop-shadow-*	Drop shadow filter utilities like drop-shadow-md
+--blur-*	Blur filter utilities like blur-md
+--perspective-*	Perspective utilities like perspective-near
+--aspect-*	Aspect ratio utilities like aspect-video
+--ease-*	Transition timing function utilities like ease-out
+--animate-*	Animation utilities like animate-spin */
