@@ -37,12 +37,12 @@ export const getBookings = createAsyncThunk(
     try {
       console.log(
         'API Request:',
-        'http://board-backend-production-c2b2.up.railway.app/api/v1/market-data',
+        'https://board-backend-production-c2b2.up.railway.app/api/v1/market-data',
         params
       );
 
       const { data } = await axios.get(
-        'http://board-backend-production-c2b2.up.railway.app/api/v1/market-data',
+        'https://board-backend-production-c2b2.up.railway.app/api/v1/market-data',
         { params: { ...params, cacheBuster: Date.now() } }
       );
 
